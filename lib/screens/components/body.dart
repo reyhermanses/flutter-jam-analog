@@ -31,6 +31,7 @@ class BodyState extends State<Body> {
   String? message;
   Timer? searchOnStoppedTyping;
   BlocClock? _blocClock;
+
   @override
   void initState() {
     _blocClock = BlocProvider.of<BlocClock>(context);
@@ -52,11 +53,9 @@ class BodyState extends State<Body> {
         ) {
           return ListView(
             children: [
-              // Text('$count'),
               BlocListener<BlocClock, StateClock>(
                 listener: (context, state) {
                   if (state is StateClockHourMinuteValue) {
-                    // print(state.message!);
                     setState(() {
                       hour = state.hour;
                       minute = state.minute;
